@@ -1,5 +1,5 @@
 #include <stdio.h>
-main(){
+int main(){
     double a,b,c,x;
     printf("vvedite a");
     scanf("%lf", &a);

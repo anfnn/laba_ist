@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/anna/repos/laba_ist",
-      "program": "/home/anna/repos/laba_ist/build/Debug/outDebug",
+      "cwd": "/home/anna/repos/laba_ist/1_LABA",
+      "program": "/home/anna/repos/laba_ist/1_LABA/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
