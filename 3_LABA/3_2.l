@@ -2,8 +2,9 @@
     #include <stdio.h>
     #include <string.h>
     #include "3_2.tab.h"
-    void erorr();
-    %}
+    void error();
+%}
+
 %%
 "+"     { return SUM;}
 "-"     { return MIN; }
@@ -13,19 +14,14 @@
 "("     {return prSKOBKA;}
 ")"     {return levSKOBKA;}
 "="     {return RAVNO;}
-[/t] + ;
-.       {erorr();}
+
+.       {error();}
 %%
-int yylex(void);
-void yyerror(const char *str){
-    fprintf(stderr,"Error: %s\n",str);
-}
+
 int yywrap(){
     return 1;
 }
-int main(int argc, char **argv) {
-    yyparse();
-}
+
 void error(){
-    printf("Erorr");
+    printf("Error");
 }
