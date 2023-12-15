@@ -2,6 +2,10 @@
 #include <stdio.h>
 #include <string.h>
 #include "3_2.tab.h"
+
+int yylex(void);
+void yyerror(const char *str);
+int main(int argc, char **argv);
 %}
 
 %token SUM MIN MULT DEL
@@ -31,3 +35,11 @@ pervich: INTEGER
 
 %%
 
+void yyerror(const char *str){
+    fprintf(stderr,"Error: %s\n",str);
+}
+
+int main(int argc, char **argv){
+  yyparse();
+  return 0;
+}
