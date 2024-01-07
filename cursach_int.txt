@@ -1,0 +1,9 @@
+right 3
+jumpup 2
+left 5
+t1
+down 3
+up 23
+jumpd 5
+t2
+exit
