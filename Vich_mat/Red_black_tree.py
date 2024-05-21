@@ -59,64 +59,39 @@ class RBTree:
     def fix_tree(self, node):
         print('NODE PARENT RED - {}'.format(node.parent.red))
         try:
-            while node.parent.red is True and node is not self.root:
-                print('ФИКС>> КЛЮЧ УЗЛА - {} '
-                      'КЛЮЧ РОДИТЕЛЯ - {}'.format(node.key,
-                                                     node.parent.key))
+            while node.parent is not None and node.parent.red is True and node is not self.root:
+                print('ФИКС>> КЛЮЧ УЗЛА - {} КЛЮЧ РОДИТЕЛЯ - {}'.format(node.key, node.parent.key))
                 if node.parent == node.parent.parent.left:
                     uncle = node.parent.parent.right
-                    print('[ЛЕВЫЙ] ДЯДЯ КРАСНЫЙ - {} '
-                          'КЛЮЧ ДЯДИ - {} РОДИТЕЛЬ РОДИТЕЛЯ {}'.format(uncle.red, uncle.key, node.parent.parent.key))
+                    print('[ЛЕВЫЙ] ДЯДЯ КРАСНЫЙ - {} КЛЮЧ ДЯДИ - {} РОДИТЕЛЬ РОДИТЕЛЯ {}'.format(uncle.red, uncle.key,
+                                                                                                 node.parent.parent.key))
                     if uncle.red:
-                        '''
-                        Вставка нового узла, когда родитель и дядя красные
-                        -> неверно
-                        Перекрашиваем родителя и дядю в черный цвет
-                        '''
                         node.parent.red = False
                         uncle.red = False
                         node.parent.parent.red = True
                         node = node.parent.parent
-                        print('ЦВЕТ УЗЛА - {} ЦВЕТ ДЯДИ - {} ЦВЕТ РОДИТЕЛЯ - '
-                              '{}'.format(
-                                    colored(node.red, 'red',
-                                            attrs=['reverse', 'blink']),
-                                    colored(uncle.red, 'yellow',
-                                            attrs=['reverse', 'blink']),
-                                    colored(node.parent.red, 'yellow',
-                                            attrs=['reverse', 'blink'])))
+                        print('ЦВЕТ УЗЛА - {} ЦВЕТ ДЯДИ - {} ЦВЕТ РОДИТЕЛЯ - {}'.format(
+                            colored(node.red, 'red', attrs=['reverse', 'blink']),
+                            colored(uncle.red, 'yellow', attrs=['reverse', 'blink']),
+                            colored(node.parent.red, 'yellow', attrs=['reverse', 'blink'])))
                     else:
                         if node == node.parent.right:
-                            # Это случай 2
                             print('в ТЕСТ>>>>', node.key)
                             node = node.parent
                             print('ПОСЛЕ ТЕСТА>>>>', node.key)
-
-                            # self.left_rotate(node)
-                        # Это случай 3
-                        # node.parent.red = False
-                        # node.parent.parent.red = True
-                        # self.right_rotate(node.parent.parent)
-
+                        # Добавьте дополнительную логику здесь для других случаев и вариантов
                 else:
                     try:
                         uncle = node.parent.parent.left
-                        print('[ПРАВЫЙ] ДЯДЯ КРАСНЫЙ - {} '
-                              'КЛЮЧ ДЯДИ - {}'.format(uncle.red, uncle.key))
+                        print('[ПРАВЫЙ] ДЯДЯ КРАСНЫЙ - {} КЛЮЧ ДЯДИ - {}'.format(uncle.red, uncle.key))
                         if uncle.red:
-                            #  Случай 1
                             node.parent.red = False
                             uncle.red = False
                             node.parent.parent.red = True
-                            print('ЦВЕТ УЗЛА - {} ЦВЕТ ДЯДИ - {} ЦВЕТ РОДИТЕЛЯ - '
-                                  '{}'.format(
-                                        colored(node.red, 'red',
-                                                attrs=['reverse', 'blink']),
-                                        colored(uncle.red, 'yellow',
-                                                attrs=['reverse', 'blink']),
-                                        colored(node.parent.red, 'yellow',
-                                                attrs=['reverse', 'blink'])))
-
+                            print('ЦВЕТ УЗЛА - {} ЦВЕТ ДЯДИ - {} ЦВЕТ РОДИТЕЛЯ - {}'.format(
+                                colored(node.red, 'red', attrs=['reverse', 'blink']),
+                                colored(uncle.red, 'yellow', attrs=['reverse', 'blink']),
+                                colored(node.parent.red, 'yellow', attrs=['reverse', 'blink'])))
                     except AttributeError:
                         print("НЕТ ДЯДИ")
                         break
@@ -142,6 +117,6 @@ class RBTree:
 
 # Пример использования
 rb_tree = RBTree()
-rb_tree.random_insert(10)
+rb_tree.random_insert(20)
 max_depth = rb_tree.get_max_depth()
 print(f"Максимальная глубина дерева: {max_depth}")
