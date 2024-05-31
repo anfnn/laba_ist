@@ -2,7 +2,7 @@
  В качестве способов сортировки были выбраны:
  Сортировка подсчётом (def counting_sort)
  Сортировка пузырьком (def bubble_sort)
- СОртировка слиянияем (def merge_sort)
+ Сoртировка слиянияем (def merge_sort)
  """
 
 from random import randint
