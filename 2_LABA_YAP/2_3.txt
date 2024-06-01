@@ -1,3 +1,0 @@
-fruits 390.56
-bread 789.45
-beer 123.64
