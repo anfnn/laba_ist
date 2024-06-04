@@ -24,24 +24,23 @@ import random
 
 class Node:
     def __init__(self, key, red=True):
-        self.key = key
-        self.red = red
-        self.left = None
-        self.right = None
-        self.parent = None
-
+        self.key = key  # Ключ узла
+        self.red = red  # Флаг цвета (красный или черный)
+        self.left = None  # Левый потомок
+        self.right = None  # Правый потомок
+        self.parent = None  # Родитель
 class RBTree:
     def __init__(self):
-        self.root = None
+        self.root = None  # Корень дерева
 
-    def insert(self, key):
+  def insert(self, key):
         node = Node(key)
-        if self.root is None:
-            node.red = False
-            self.root = node
+        if self.root is None:  # Если дерево пустое
+            node.red = False  # Устанавливаем цвет корня в черный
+            self.root = node  # Назначаем узел корнем
             return
         current = self.root
-        while current:
+        while current:  # Поиск места для вставки нового узла
             parent = current
             if key < current.key:
                 current = current.left
@@ -54,7 +53,7 @@ class RBTree:
             parent.right = node
         node.left = None
         node.right = None
-        self.fix_tree(node)
+        self.fix_tree(node)  # Вызов метода для исправления дерева после вставки нового узла
 
     def fix_tree(self, node):
         print('NODE PARENT RED - {}'.format(node.parent.red))
