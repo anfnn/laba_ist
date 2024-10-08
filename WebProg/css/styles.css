@@ -27,8 +27,13 @@
 /* Общие стили для всего приложения */
 
 body {
-  background: #040C18;
+  background: #031b34;
   padding: 0 2rem;
+  overflow: auto;
+}
+
+body.oh {
+  overflow: hidden;
 }
 
 .page {
@@ -139,16 +144,50 @@ p {
   position: fixed;
   justify-content: space-between;
   align-items: center;
-  background: #040C18;
+  background: #031b34;
 }
 
-.header .header-logo {
-  width: 162px;
+.header .header__logo .logo__link {
+  display: flex;
+  align-items: center;
 }
 
 .header .header__menu .menu {
   display: flex;
   column-gap: 2rem;
+}
+
+.header .header__right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: 2rem;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+
+.header .header__right.hidden {
+  opacity: 0;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  visibility: hidden;
+}
+
+.header .header__right .menu__close {
+  width: 38px;
+  height: 38px;
+}
+
+.header .header__right .menu__close.hidden {
+  display: none;
 }
 
 .header .header__menu .menu .menu__item a {
@@ -165,6 +204,47 @@ p {
   border-bottom-color: #f49867;
 }
 
+.header .header__burger_menu {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  cursor: pointer;
+}
+
+.header .header__burger_menu.hidden {
+  display: none;
+}
+
+.header .header__burger_menu .burger_menu__line,
+.header .header__right .menu__close .menu__line {
+  width: 43px;
+  height: 5px;
+  border-radius: 2px;
+  background: #fff;
+}
+
+.header .header__right .menu__close .menu__line:nth-child(1) {
+  position: relative;
+  top: 15px;
+  right: 4px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+}
+
+.header .header__right .menu__close .menu__line:nth-child(2) {
+  position: relative;
+  top: 10px;
+  right: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+}
+
 .header .cta_buttons {
   display: flex;
   column-gap: 1rem;
@@ -176,7 +256,7 @@ p {
   display: flex;
   justify-content: space-between;
   column-gap: 1rem;
-  min-height: 60vh;
+  /* min-height: 60vh; */
   margin: 14rem 0 3rem;
 }
 
@@ -224,6 +304,8 @@ p {
 
 .brands_section {
   display: flex;
+  flex-wrap: wrap;
+  row-gap: 2rem;
   justify-content: center;
   align-items: center;
   padding: 0 0 6rem 0;
@@ -243,6 +325,7 @@ p {
 
 .what_is_chatgpt_section .what_is_chatgpt_section__top {
   display: flex;
+  column-gap: 3rem;
 }
 
 .what_is_chatgpt_section .what_is_chatgpt_section__top .top__header {
@@ -1171,7 +1254,7 @@ footer .footer-end .end-text{
   }
 
 
-  .expectations {
+ .expectations {
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -1179,89 +1262,70 @@ footer .footer-end .end-text{
   .expectations .future_image{
     margin: auto;
     width: 100%;
-    padding-right: 150px;
+    padding-left: 320px;
   }
   .expectations .right_container2{
-   row-gap: 1rem; 
-   width: 83.5%;
-   padding-right: 170px;
-
+    margin-top: 50px;
+    row-gap: 1rem;
+    width: 83.5%;
+    padding-right: 170px;
+    padding-left: 150px;
   }
  .expectations .right_container2 .right_cta{
-    margin-top: 1rem;
-    font-size: 15px;
+    font-size: 18px;
 
   }
   .expectations .right_container2 .right__header{
-    height: 50px;
-    font-size: 25px;
+     /* height: 50px; */
+    font-size: 35px;
+    width: 470px;
+     height: 60px;
   }
   .expectations .right_container2 .content_bed{
-    font-size: 15px;
+    font-size: 18px;
     flex-wrap: wrap;
 
   }
 
   .expectations .right_container2 .right_cta2{
-    font-size: 15px;
+    font-size: 18px;
+    width: 250px;
 
   }
 
   .registration{
     margin-top: 380px;
-    width: 700px;
-    height:172.65px;
+    width: 500px;
+    height: 172.65px;
     border-radius: 25px;
+    margin-left: 130px;
   }
 
   .registration .description_registration .big_words{
     width: 450px;
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .registration .description_registration {
     padding-left: 34px;
+    width: 300px;
   }
 
-  .registration.start{
-    width: 85px;
-    height: 28px;
-    font-size: 9px;
+  .registration .start{
+    margin-top: 70px;
+    width: 159.136px;
+    height: 49.398px;
+  }
+
+  .News .passing{
+    width: 550px;
   }
 
 
   .many_news{
     display: inline;
     width: 100%;
-  }
-
-  .many_news .block1{
-  margin-top: 50px;
-  }
-
-  .many_news .block2{
-  margin-top: 50px;
-  }
-
-  .many_news .news1{
-  width: 100%;
-  }
-
-  .many_news .news1 .news1_info .news1_text {
-  font-size:30px;
-  line-height: 1.5;
-  padding-top: 25px;
-  }
-
-  .many_news .news1 .news1_info{
-  width: 100%;
-  }
-  .many_news .news1 .news1_info .data1 {
-  font-size:15px;
-  }
-
-  .many_news .news1 .news1_info .news1_read{
-    font-size:15px;
+    margin-left: 250px;
   }
 
 
@@ -1275,7 +1339,9 @@ footer .footer-end .end-text{
 
 }
 
-@media screen and (max-width: 765px) {
+
+
+@media screen and (max-width: 425px) {
   a {
     font-size: 12px;
   }
@@ -1324,12 +1390,12 @@ footer .footer-end .end-text{
   .expectations .future_image{
     margin: auto;
     width: 100%;
-    padding-right: 150px;
+    padding-right: 130px;
   }
   .expectations .right_container2{
    row-gap: 1rem; 
    width: 83.5%;
-   padding-right: 170px;
+   padding-left: 180px;
   }
  .expectations .right_container2 .right_cta{
     margin-top: 1rem;
@@ -1352,9 +1418,9 @@ footer .footer-end .end-text{
   }
 
   .registration{
-    margin-top: 350px;
-    width: 650px;
-    height:172.65px;
+    margin-top: 400px;
+    width: 450px;
+    height: 172.65px;
     border-radius: 25px;
   }
 
@@ -1367,11 +1433,12 @@ footer .footer-end .end-text{
     padding-left: 34px;
   }
 
-  .registration.start{
-    width: 85px;
-    height: 28px;
-    font-size: 9px;
+  .registration .start{
+    margin-top: 100px;
+    width: 140.136px;
+    height: 49.398px;
   }
+    
 
 
   .News .passing{
@@ -1382,6 +1449,7 @@ footer .footer-end .end-text{
   .many_news{
     display: inline;
     width: 100%;
+    margin-left: 350px
   }
 
   .many_news .block1{
